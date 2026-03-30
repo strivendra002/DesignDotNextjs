@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 
 const insights = [
@@ -22,20 +21,16 @@ const insights = [
 
 export default function Insights() {
   return (
-    <section className="w-full bg-[#f5f5f5] py-16">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-
-       
-        <div className="relative">
-
-         
-          <div className="absolute -left-6 top-0 bg-gray-200 px-6 py-8 rounded-xl text-center font-semibold text-sm">
-            INSPIRATION & <br /> INSIGHTS
+    <section className="w-full bg-[#f5f5f5] py-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 grid md:grid-cols-2 gap-16 items-start">
+        <div className="relative pl-24 md:pl-28">
+          <div className="absolute left-0 top-0 w-24 h-24 bg-gray-200 rounded-2xl flex items-center justify-center text-[11px] font-semibold text-black leading-tight shadow-sm">
+            <span className="text-center">
+              INSPIRATION & <br /> INSIGHTS
+            </span>
           </div>
 
-          
           <div className="space-y-6">
-
             {insights.map((item, index) => (
               <div
                 key={index}
@@ -44,68 +39,65 @@ export default function Insights() {
                 }`}
               >
                 <h3
-                  className={`font-semibold ${
-                    index === 0 ? "text-blue-600" : ""
+                  className={`text-sm font-semibold ${
+                    index === 0 ? "text-blue-600" : "text-black"
                   }`}
                 >
                   {item.title}
                 </h3>
 
-                <p className="text-sm text-gray-600 mt-2">
+                <p
+                  className={`text-xs ${
+                    index === 0 ? "text-blue-600" : "text-black"
+                  } mt-2 leading-relaxed max-w-md`}
+                >
                   {item.desc}
                 </p>
               </div>
             ))}
-
           </div>
         </div>
 
-        {/* RIGHT SIDE */}
-        <div className="flex gap-4 justify-center">
+        <div className="flex items-end gap-4">
+          <div className="relative w-65 h-90 rounded-2xl overflow-hidden shadow-lg">
+            <Image src="/coins.jpg" alt="coins" fill className="object-cover" />
 
-          {/* BIG CARD */}
-          <div className="relative w-55 h-95 rounded-2xl overflow-hidden">
-            <Image
-              src="/coins.jpg"
-              alt="coins"
-              fill
-              sizes="220px"
-              className="object-cover"
-            />
-
-            <div className="absolute bottom-4 left-4 text-white">
-              <h4 className="font-semibold">Pre-Market</h4>
-              <p className="text-xs">
-                Evaluating Supply Chain Readiness Before Committing Capital in Emerging Markets
+            <div className="absolute bottom-4 left-4 right-4 text-white">
+              <h4 className="text-sm font-semibold">Pre-Market</h4>
+              <p className="text-[11px] opacity-90 leading-snug">
+                Evaluating Supply Chain Readiness Before Committing Capital in
+                Emerging Markets
               </p>
             </div>
           </div>
 
-         
-          <div className="flex flex-col gap-4">
+          <div className="flex gap-4">
+            <div className="relative w-22.5 h-90 rounded-2xl overflow-hidden">
+              <Image
+                src="/growth.jpg"
+                alt="operations"
+                fill
+                className="object-cover"
+              />
 
-            <div className="relative w-30 h-45 rounded-2xl overflow-hidden">
-            
-              <div className="absolute bottom-2 left-2 text-white text-xs -rotate-90 origin-bottom-left">
+              <div className="absolute bottom-7 left-1/2 -translate-x-1/2 -rotate-90 text-white text-xs font-semibold whitespace-nowrap">
                 Operations
               </div>
             </div>
 
-            <div className="relative w-70 h-45 rounded-2xl overflow-hidden">
+            <div className="relative w-22.5 h-90 rounded-2xl overflow-hidden">
               <Image
                 src="/growth.jpg"
                 alt="growth"
                 fill
-                sizes="120px"
                 className="object-cover"
               />
-              <div className="absolute bottom-2 left-2 text-white text-xs -rotate-90 origin-bottom-left">
+
+              <div className="absolute bottom-13 left-1/2 -translate-x-1/2 -rotate-90 text-white text-xs font-semibold whitespace-nowrap">
                 Growth & Expansion
               </div>
             </div>
-
           </div>
-
         </div>
       </div>
     </section>
